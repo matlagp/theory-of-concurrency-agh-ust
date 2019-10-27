@@ -23,6 +23,6 @@ public class BinarySemaphore implements Semaphore {
     @Override
     public synchronized void V() {
         taken = false;
-        notify();
+        notifyAll();
     }
 }

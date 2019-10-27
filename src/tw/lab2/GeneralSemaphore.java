@@ -26,6 +26,6 @@ public class GeneralSemaphore implements Semaphore {
     @Override
     public synchronized void V() {
         counter++;
-        notify();
+        notifyAll();
     }
 }
