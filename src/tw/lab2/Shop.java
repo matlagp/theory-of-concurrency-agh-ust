@@ -1,6 +1,7 @@
 package tw.lab2;
 
 import tw.Logger;
+import tw.Utilities;
 
 public class Shop {
     private int numberOfCarts;
@@ -21,7 +22,7 @@ public class Shop {
 
     public void doShopping() throws InterruptedException {
         enterWhenCartsReady();
-        Thread.sleep((long) (Math.random() * 1000)); // Doing shopping...
+        Utilities.sleepUpToMillis(1000);    // Doing shopping
         leaveCartAndGoOut();
     }
 

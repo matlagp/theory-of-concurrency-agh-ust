@@ -14,23 +14,6 @@ public class Consumer implements Runnable {
     public void run() {
         for(int i = 0;  i < number_of_runs;   i++) {
             String message = buffer.take();
-            // synchronized (buffer) {
-            //     while (buffer.isEmpty()) {
-            //         try {
-            //             buffer.wait();
-            //         } catch (InterruptedException e) {
-            //             e.printStackTrace();
-            //             Thread.currentThread().interrupt();
-            //         }
-            //     }
-            //     message = buffer.take();
-            //     timestamp = System.currentTimeMillis();
-            //     System.out.println("This is Consumer " + this.hashCode() + " at " + timestamp + ": " + message);
-            //     System.out.println("\tGot message in " + (timestamp - buffer.getModificationTime()) + " millis");
-            //     buffer.flipEmpty();
-            //     buffer.notifyAll();
-            // }
-            // System.out.println("This is Consumer " + this.hashCode() + ": " + message);
         }
     }
 }

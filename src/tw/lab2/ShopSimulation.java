@@ -1,5 +1,7 @@
 package tw.lab2;
 
+import tw.Utilities;
+
 public class ShopSimulation {
     private static final int numberOfShoppers = 10;
     private static final int numberOfCarts = 4;
@@ -16,7 +18,7 @@ public class ShopSimulation {
         for (Thread t: threads) {
             t.start();
             try {
-                Thread.sleep((long) (Math.random() * 400));
+                Utilities.sleepUpToMillis(400);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
