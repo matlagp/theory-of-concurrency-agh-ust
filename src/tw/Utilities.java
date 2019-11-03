@@ -17,4 +17,8 @@ public final class Utilities {
         Logger.log("Interrupted");
         e.printStackTrace();
     }
+
+    public static long timeDeltaInMillis(long start, long end) {
+        return end - start;
+    }
 }
