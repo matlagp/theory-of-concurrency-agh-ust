@@ -2,15 +2,18 @@ package tw.lab5;
 
 import tw.Utilities;
 
+import java.awt.image.BufferedImage;
 import java.util.concurrent.Callable;
 
 public class Mandelbrot implements Callable<Integer> {
+    private BufferedImage I;
     private final int MAX_ITER = 1570;
     private final double ZOOM = 450;
     private double zx, zy, cX, cY, tmp;
     private final int minX, maxX, minY, maxY;
 
-    public Mandelbrot(int minX, int maxX, int minY, int maxY) {
+    public Mandelbrot(BufferedImage I, int minX, int maxX, int minY, int maxY) {
+        this.I = I;
         this.minX = minX;
         this.maxX = maxX;
         this.minY = minY;
@@ -30,6 +33,7 @@ public class Mandelbrot implements Callable<Integer> {
                     zx = tmp;
                     iter--;
                 }
+                I.setRGB(x, y, iter | (iter << 8));
             }
         }
     }
