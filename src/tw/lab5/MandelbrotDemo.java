@@ -38,7 +38,7 @@ public class MandelbrotDemo extends JFrame {
         headerRow[0] = "";
         headerRow[1] = "# of threads";
         headerRow[2] = "10x # of threads";
-        headerRow[3] = "task for each pixel";
+        headerRow[3] = "task for each column";
         table[0] = headerRow;
         int j = 1;
         MandelbrotDemo demo= new MandelbrotDemo();
@@ -47,7 +47,7 @@ public class MandelbrotDemo extends JFrame {
             tableRow[0] = String.format("%d thread(s)", i);
             long timeOfComputation1 = demo.computeMandelbrot(i, i);
             long timeOfComputation2 = demo.computeMandelbrot(i, 10*i);
-            long timeOfComputation3 = demo.computeMandelbrot(i, HEIGHT*WIDTH);
+            long timeOfComputation3 = demo.computeMandelbrot(i, WIDTH);
             tableRow[1] = String.format("%d", timeOfComputation1);
             tableRow[2] = String.format("%d", timeOfComputation2);
             tableRow[3] = String.format("%d", timeOfComputation3);
@@ -65,10 +65,10 @@ public class MandelbrotDemo extends JFrame {
         for (int j = 0; j < numberOfTasks; j++) {
             tasks.add(new Mandelbrot(
                     I,
-                    j*(HEIGHT/numberOfTasks),
-                    (j+1)*(HEIGHT/numberOfTasks),
                     j*(WIDTH/numberOfTasks),
-                    (j+1)*(WIDTH/numberOfTasks)));
+                    (j+1)*(WIDTH/numberOfTasks),
+                    0,
+                    HEIGHT));
         }
 
         long startTime = System.currentTimeMillis();
